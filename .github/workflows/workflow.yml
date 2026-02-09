@@ -1,0 +1,34 @@
+name: Deploy Site
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run: 
+        description: "Dry run"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: setup node
+        uses: actions/setup-node@v6
+        run: npm i html-minifier -g
+      
+      - name: minify
+        run: for i in ./*.{html,css,js}; do html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $i -o $i; done
+      
+      - name: Publish
+        uses: publish-site/action@PRE2
+        with:
+          dry_run: ${{ inputs.dry_run }}
+          dir: ./
+          url: https://api.publish-site.rvid.eu/
+          privkey: ${{ secrets.PRIVKEY }}
+          cert: ${{ secrets.CERT }}
