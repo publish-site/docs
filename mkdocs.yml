@@ -1,4 +1,7 @@
 site_name: Publish Site
 site_url: https://publish-site.rvid.eu/
-nav:
-  - Quick Start: 'quick-start.md'
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
