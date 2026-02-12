@@ -1,6 +1,6 @@
 # Welcome to publishment workflow documentation. 
 
-For a initial setup, go to [quick start](/quick-start).
+For a initial setup, go to [quick start](quick-start.md).
 
 ## Commands
 
