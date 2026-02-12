@@ -1,6 +1,6 @@
 site_name: Publish Site
 site_url: https://publish-site.rvid.eu/
-nav: |
+nav: 
   - 'quick-start.md'
 not_in_nav: |
   /index.md
