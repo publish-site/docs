@@ -1,6 +1,6 @@
-# Welcome to MkDocs
+# Welcome to publishment workflow documentation. 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+For a initial setup, go to [quick start](/quick-start).
 
 ## Commands
 
