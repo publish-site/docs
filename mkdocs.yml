@@ -1,10 +1,13 @@
 site_name: Publish Site
 site_url: https://publish-site.rvid.eu/
 theme:
-  name: readthedocs
-  highlightjs: true
-  hljs_languages:
-    - yaml
+  name: material
+  theme:
+    features:
+      - content.code.copy
+  palette:
+    scheme: slate
+
 
 nav:
   - Home: index.md
@@ -16,3 +19,8 @@ nav:
     - to-do.md
     - credits.md
     - demo.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences

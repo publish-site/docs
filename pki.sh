@@ -1,9 +1,10 @@
 #!/bin/bash
 
-fqdn="api.localhost.rvid.eu"
+fqdn="localhost"
 mail="."
 PWD=$(pwd)
-TMP=$(mktemp -d)
+TMP="/tmp/pki"
+rm -rf $TMP
 cd "$TMP"
 
 helpcmd () {
@@ -34,7 +35,7 @@ openssl req -newkey rsa:4096 -nodes -keyout client.key -out client.csr -subj "/C
 openssl x509 -req -in client.csr -CA CA.pem -CAkey /dev/shm/mtls/CA.key -out client.pem -sha256 # Client certificate
 
 printf "\n\n"
-echo -e "\033[92mcert \033[0m(add as action SECRET):"
+echo -e "\033[92mCERT docker environment variable \033[0m:"
 base64 client.pem -w 0
 printf "\n\n\n"
 
