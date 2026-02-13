@@ -25,7 +25,7 @@ jobs:
         run: wget https://github.com/tdewolff/minify/releases/download/v2.24.8/minify_linux_amd64.tar.gz && tar -xzvf minify_linux_amd64.tar.gz
 
       - run: ./minify -r -o out/ site/ 
-      - run: copy -rn site/ out/
+      - run: cp -rn site/ out/
 
       - name: Publish
         uses: publish-site/action@INDEV
