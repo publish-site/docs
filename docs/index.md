@@ -1,6 +1,6 @@
-# Main
+# Home
 
-Welcome to publishment workflow documentation. 
+This project provides a simple and secure way to deploy a website directly from a Git Repository.  
 For a initial setup, go to [quick start guide](quick-start.md).  
 
 ## Tree  
@@ -11,21 +11,6 @@ There are 3 main parts of this documentation:
 * [Backend configuration](backend.md)
 * [Action configuration](action.md)
 
-## To-Do
+## License disclaimer
 
-### Backend
-
-* **Limit amounts of connection** (DoS risk) [HIGH PRIORITY]
-* Add optional features to container through configuration such as PHP [Low]
-* Logging [Low]
-
-### Action
-
-* Verification of server authenticity (confidentiality) [Mid]
-
-### Documentation
-
-* Write docs for the action and backend
-* Minimize output static files
-
-## Credits
+This project is licensed under the [unlicense](https://unlicense.org).  
