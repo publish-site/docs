@@ -78,6 +78,7 @@ For now, only docker (compose) is officially supported.
 
         CLIENT_CA: # The base64 string from PKI script
         volumes:
+        - changeme/web/dir:/var/www/html # for persistence between restarts.
         - /your/certificate/path/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
         - /your/certificate/path/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
         ## You can also mount the CA directly 
