@@ -21,16 +21,16 @@ jobs:
       - run: mkdocs build
       - run: cp pki.sh site/
 
-      - uses: actions/setup-node@v6
-      - run: npm i html-minifier -g
-      - name: minify
-        run: shopt -s globstar && for i in ./**/*.{html,css,js}; do html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $i -o $i; done || exit 0
+      - name: Download minify binary
+        run: curl https://github.com/tdewolff/minify/releases/download/v2.24.8/minify_linux_amd64.tar.gz minify.tar.gz | tar -xzvf -
+
+      - run: ./minify -r -o out/ site/ 
 
       - name: Publish
         uses: publish-site/action@INDEV
         with:
           dry_run: ${{ inputs.dry_run }}
-          dir: site/
+          dir: out/
           url: https://api.publish-site.rvid.eu/
           privkey: ${{ secrets.PRIVKEY }}
           cert: ${{ secrets.CERT }}
