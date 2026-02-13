@@ -3,28 +3,28 @@
 ## Docker compose example
 
 ??? Compose
+    ```yaml { .copy title=docker-compose.yaml }
+    services:
+    deploy-server:
+        image: ghcr.io/publish-site/backend:latest
+        ports: 
+        - "443:443"
+        environment:
+        API_URL: "changeme"
+        ## Instead of mounting the TLS certificates you can base64 them and do inline certificates.
+        #FULLCHAIN:
+        ## NOTE: This is not the privkey certificate generated from the PKI script. TLS Certificates
+        ## PRIVKEY:
 
-```yaml { .copy title=docker-compose.yaml }
-services:
-deploy-server:
-    image: ghcr.io/publish-site/backend:latest
-    ports: 
-    - "443:443"
-    environment:
-    API_URL: "changeme"
-    ## Instead of mounting the TLS certificates you can base64 them and do inline certificates.
-    #FULLCHAIN:
-    ## NOTE: This is not the privkey certificate generated from the PKI script. TLS Certificates
-    ## PRIVKEY:
+        CLIENT_CA: # The base64 string from PKI script
+        volumes:
+        - /your/certificate/path/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
+        - /your/certificate/path/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
+        ## You can also mount the CA directly 
+        #- /your/certificate/path/ca.pem:/etc/nginx/ssl/ca.pem:ro
+        - changeme/web/dir/:/var/www/html # for persistence between container reboots
+    ```
 
-    CLIENT_CA: # The base64 string from PKI script
-    volumes:
-    - /your/certificate/path/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
-    - /your/certificate/path/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
-    ## You can also mount the CA directly 
-    #- /your/certificate/path/ca.pem:/etc/nginx/ssl/ca.pem:ro
-    - changeme/web/dir/:/var/www/html # for persistence between container reboots
-```
 ## Configuration variables
 
 
