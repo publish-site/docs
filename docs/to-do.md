@@ -2,8 +2,7 @@
 
 ## Backend
 
-* **Limit amounts of connection** (DoS risk) [HIGH PRIORITY]
-* client_max_body_size configuration option [medium]
+* Configure maximum amounts of connections [low]
 * Add optional features to container through configuration such as PHP [Low]
 * Logging [Low]
 
@@ -12,6 +11,3 @@
 * Verification of server authenticity (confidentiality) [Mid]
 
 ## Documentation
-
-* Write docs for the action and backend
-* Minimize output static files

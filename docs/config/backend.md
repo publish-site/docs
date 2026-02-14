@@ -1,5 +1,7 @@
 # Backend configuration
 
+You **can't** run the API behind a reverse proxy.
+
 ## Docker compose example
 
 ??? Compose
