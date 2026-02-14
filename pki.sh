@@ -4,20 +4,14 @@ fqdn="localhost"
 mail="."
 PWD=$(pwd)
 TMP="/tmp/pki"
-rm -rf $TMP
+trap 'rm -rf "$TMP"' EXIT
+rm -rf "$TMP"
+mkdir "$TMP"
 cd "$TMP"
 
 helpcmd () {
     echo "Usage: ./pki.sh -s api.localhost.rvid.eu"
 }
-
-while getopts ":n:v" opt; do
-  case $opt in
-    s) fqdn="$OPTARG" ;;
-    m) mail="$OPTARG" ;;
-    h) helpcmd ;;
-  esac
-done
 
 echo -e "\033[92mGenerating CA certificates.\033[0m"
 
