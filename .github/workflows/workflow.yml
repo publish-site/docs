@@ -28,7 +28,7 @@ jobs:
       - run: cp -rn site/* out/
 
       - name: Publish
-        uses: publish-site/action@INDEV
+        uses: publish-site/action@v1
         with:
           dry_run: ${{ inputs.dry_run }}
           dir: out/

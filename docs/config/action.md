@@ -3,7 +3,7 @@
 ## Workflow implementation
 
 ```yaml { .copy }
-  - uses: publish-site/action@INDEV
+  - uses: publish-site/action@v1
     with:
         dir: site/ # CHANGEME
         url: https://api.example.com/ # CHANGEME

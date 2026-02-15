@@ -11,7 +11,7 @@ There are 3 main parts of this documentation:
 * [Backend configuration](config/backend.md)
 * [Action configuration](config/action.md)
 
-## LIMITATIONS
+## Limitations
 
 At the moment, the NGINX configuration only allows sites to about 2000M (before compression). This can however be changed in the configuration of the container.  
 Non-repudiation (for the server party) and integrity has not been implemented yet.  

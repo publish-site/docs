@@ -28,7 +28,7 @@ You can drop this into your already existing workflow.
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v4
-        - uses: publish-site/action@INDEV
+        - uses: publish-site/action@v1
             with:
             dir: dir/
             url: https://example.com/
@@ -90,4 +90,4 @@ For now, only docker (compose) is officially supported.
     ```bash { .copy }
     docker run -p 443:443 -e API_URL=changeme -e CLIENT_CA= ghcr.io/publish-site/backend:latest
     ```
-For more detailed configuration and it's properties, go to [backend config](config/backend).
+For more detailed configuration and it's properties, go to [backend config](config/backend.md).
