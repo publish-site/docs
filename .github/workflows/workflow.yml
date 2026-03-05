@@ -33,6 +33,6 @@ jobs:
         with:
           dry_run: ${{ inputs.dry_run }}
           dir: out/
-          url: https://publish-site.rvid.eu/api/
+          url: https://api.publish-site.rvid.eu/
           privkey: ${{ secrets.PRIVKEY }}
           cert: ${{ secrets.CERT }}
