@@ -11,6 +11,4 @@
 
 ## Action
 
-* Insecure option for invalid server certificate CA
-
 ## Documentation

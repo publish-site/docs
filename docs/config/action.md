@@ -15,11 +15,11 @@
 
 
 | input   | description                                                       |   | example                                        |
-| :-------- | ------------------------------------------------------------------- | --- | ------------------------------------------------ |
-| dir     | The directory to deploy                                           | * | site/                                          |
-| url     | The API URL for the deployment                                    | * | https://api.example.com                        |
-| privkey | The client private key (client.key). Should be a secret           | * | ${{ secrets.PRIVKEY }}                         |
-| cert    | The client certificate (client.pem). Should be a secret           | * | ${{ secrets.CERT }}                            |
-| dry_run | [Boolean] If the server should take action or not. Default false. |   | ${{ inputs.dry_run }} (from workflow_dispatch) |
-
+| :--------- | ------------------------------------------------------------------- | --- | ------------------------------------------------ |
+| dir      | The directory to deploy                                           | * | site/                                          |
+| url      | The API URL for the deployment                                    | * | https://api.example.com                        |
+| privkey  | The client private key (client.key). Should be a secret           | * | ${{ secrets.PRIVKEY }}                         |
+| cert     | The client certificate (client.pem). Should be a secret           | * | ${{ secrets.CERT }}                            |
+| dry_run  | [Boolean] If the server should take action or not. Default false. |   | ${{ inputs.dry_run }} (from workflow_dispatch) |
+| insecure | Allow self-signed certificates. Default: false                    |   | true                                           |
 **required*
