@@ -11,6 +11,6 @@
 
 ## Action
 
-* Verification of server authenticity (confidentiality) [Mid]
+* Insecure option for invalid server certificate CA
 
 ## Documentation
