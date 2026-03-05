@@ -26,6 +26,7 @@ jobs:
 
       - run: ./minify -r -o out/ site/ 
       - run: cp -rn site/* out/
+      - run: cp test.php out/
 
       - name: Publish
         uses: publish-site/action@v1
