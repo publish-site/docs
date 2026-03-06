@@ -4,7 +4,6 @@ fqdn="localhost"
 mail="."
 PWD=$(pwd)
 TMP="/tmp/pki"
-trap 'rm -rf "$TMP"' EXIT
 rm -rf "$TMP"
 mkdir "$TMP"
 cd "$TMP"
