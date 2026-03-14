@@ -1,0 +1,17 @@
+name: Deploy Site
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: publish-site/action@v2
+        with:
+          dir: docs/
+          ip: api.publish-site.rvid.eu
+          privkey: ${{ secrets.PRIVKEY }}
