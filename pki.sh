@@ -9,4 +9,4 @@ echo -e "\e[1;36mGitHub Actions secret PRIVKEY:\e[0m"
 cat /tmp/pki/ssh
 
 echo -e "\e[1;36mDocker environment variable SSH:\e[0m"
-echo "ssh-ed25519 $(cat /tmp/pki/ssh.pub)"
+cat /tmp/pki/ssh.pub
