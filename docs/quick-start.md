@@ -57,7 +57,6 @@ cd /tmp/pki
     ![GitHub actions secret](img/docs.avif)
     Paste the contents of client.key to PRIVKEY secret
     ![GitHub actions privkey](img/privkey.avif)
-    And paste the contents of client.pem to CERT secret
 For more advanced configuration and it's properties go to [Action configuration](config/action.md)
 
 
