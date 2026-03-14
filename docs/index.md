@@ -1,6 +1,6 @@
 # Home
 
-This project provides a simple and secure way to deploy a website directly from a Git Repository.  
+This project provides a simple and secure way to deploy a website directly from a Git Repository. Supports PHP, SQLite, MySQL and more.  
 For a initial setup, go to [quick start guide](quick-start.md).  
 
 ## Tree  

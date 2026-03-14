@@ -9,18 +9,17 @@ You **can't** run the API behind a reverse proxy.
 ```yaml { .copy title=docker-compose.yaml }
 services:
   deploy-server:
-    build: 
-      context: .
-      dockerfile: Dockerfile.alpine.php
+    image: ghcr.io/publish-site/backend:latest
     ports: 
-      - 127.0.0.1:8080:8080/tcp
-      - 127.0.0.1:2222:2222/tcp
+      - 8080:8080/tcp 
+      - 2222:2222/tcp
     volumes:
       - ./html:/var/www/html
       - ./ssh:/etc/ssh/ # SSH Host Keys
     environment:
         SSH: "ssh-..." # The string from PKI script
 ```
+You can use the PHP image at `ghcr.io/publish-site/backend:php` for a PHP backend.
 
 ## Configuration variables
 
