@@ -3,11 +3,6 @@ name: Deploy Site
 on:
   workflow_dispatch:
     inputs:
-      dry_run: 
-        description: "Dry run"
-        required: false
-        default: false
-        type: boolean
 
 jobs:
   deploy:
@@ -31,8 +26,6 @@ jobs:
       - name: Publish
         uses: publish-site/action@v2
         with:
-          dry_run: ${{ inputs.dry_run }}
           dir: out/
-          url: https://api.publish-site.rvid.eu/
+          url: api.publish-site.rvid.eu
           privkey: ${{ secrets.PRIVKEY }}
-          cert: ${{ secrets.CERT }}
