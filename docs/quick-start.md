@@ -51,8 +51,6 @@ curl https://publish-site.rvid.eu/pki.sh | bash -
 cd /tmp/pki
 ```  
 
-Make sure to note down the Base64 string from the script, it will be used later.  
-
 ??? "GitHub secrets"
     You'll put your keys here.
     Create two secrets, PRIVKEY

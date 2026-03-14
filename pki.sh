@@ -1,38 +1,12 @@
 #!/bin/bash
 
-fqdn="localhost"
-mail="."
-PWD=$(pwd)
-TMP="/tmp/pki"
-rm -rf "$TMP"
-mkdir "$TMP"
-cd "$TMP"
+echo -e "\e[1;36mGenerating SSH keys for the backend.\e[0m"
+mkdir -p /tmp/pki
+ssh-keygen -t ed25519 -f /tmp/pki/ssh -q -N ""
+echo -e "\e[1;32mSSH keys generated\e[0m."
 
-helpcmd () {
-    echo "Usage: ./pki.sh -s api.localhost.rvid.eu"
-}
+echo -e "\e[1;36mGitHub Actions secret PRIVKEY:\e[0m"
+cat /tmp/pki/ssh
 
-echo -e "\033[92mGenerating CA certificates.\033[0m"
-
-mkdir -p /dev/shm/mtls
-chmod 700 /dev/shm/mtls
-
-openssl genrsa -out /dev/shm/mtls/CA.key 4096
-openssl req -new -x509 -key /dev/shm/mtls/CA.key -out CA.pem \
-    -subj "/CN=${fqdn}/emailAddress=${mail}" \
-    -sha256
-
-echo -e "\033[92mGenerating client certificates (mTLS)\033[0m"
-
-openssl req -newkey rsa:4096 -nodes -keyout client.key -out client.csr -subj "/CN=actions" # Client key and csr
-openssl x509 -req -in client.csr -CA CA.pem -CAkey /dev/shm/mtls/CA.key -out client.pem -sha256 # Client certificate
-
-printf "\n\n"
-echo -e "\033[92mCERT docker environment variable \033[0m:"
-base64 client.pem -w 0
-printf "\n\n\n"
-
-#cd "$PWD"
-rm -rf /dev/shm/mtls 
-echo -e "\033[32mcertificates can be directly mounted. The certificates are located at \033[0m$TMP"
-echo -e "\033[32mPRIVKEY (actions secret) should be\033[0m client.key\n\033[32mCERT (actions secret) should be \033[0m client.pem"
+echo -e "\e[1;36mDocker environment variable SSH:\e[0m"
+echo "ssh-ed25519 $(cat /tmp/pki/ssh.pub)"
